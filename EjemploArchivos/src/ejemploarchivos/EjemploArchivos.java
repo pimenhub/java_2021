@@ -17,7 +17,7 @@ public class EjemploArchivos {
         //PrintWrite - Permite agregar información al archivo
         PrintWriter pw;
         try {
-            fw = new FileWriter("C:\\Users\\Jonathan Pimentel\\Desktop\\Ejemplo2.doc", true);
+            fw = new FileWriter("C:\\Users\\Jonathan Pimentel\\Desktop\\Ejemplo2.txt");
             pw = new PrintWriter(fw);
             
             pw.println("Esta es un prueba de creacion de un archivo");

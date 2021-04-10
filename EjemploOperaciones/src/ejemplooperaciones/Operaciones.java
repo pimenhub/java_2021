@@ -18,9 +18,9 @@ public class Operaciones {
         return suma;
     }
     //resta
-    public int resta(){
+    public int resta(int a, int b){
         int resta;
-        resta = (int) (d1 - d2);
+        resta = a - b;
         return resta;
     }
     //multiplicacion
@@ -35,5 +35,9 @@ public class Operaciones {
         division = d1 / d2;
         return division;
     }
+
+   
+
+    
     
 }

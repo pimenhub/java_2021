@@ -9,7 +9,7 @@ public class EjemploOperaciones {
         Operaciones ope = new Operaciones();
         //Instancia de la clase Condiciones
         Condiciones con = new Condiciones();
-
+      
         Scanner sc = new Scanner(System.in);
         int op;
         System.out.println("***Menú***");
@@ -23,7 +23,7 @@ public class EjemploOperaciones {
         System.out.println("Elija una opción");
         op = sc.nextInt();
 
-        while (op > 0 && op < 6) {
+        while (op > 0 && op < 7) {
             switch (op) {
                 case 1:
                     System.out.println("Sumar");
@@ -35,11 +35,11 @@ public class EjemploOperaciones {
                     break;
                 case 2:
                     System.out.println("Restar");
-                    System.out.println("Ingrese el primer numero");
-                    ope.d1 = sc.nextInt();
-                    System.out.println("Ingrese el segundo numero");
-                    ope.d2 = sc.nextInt();
-                    System.out.println("El resulta de la resta es " + ope.resta());
+//                    System.out.println("Ingrese el primer numero");
+//                    ope.d1 = sc.nextInt();
+//                    System.out.println("Ingrese el segundo numero");
+//                    ope.d2 = sc.nextInt();
+                    System.out.println("El resulta de la resta es " + ope.resta(5, 2));
                     break;
                 case 3:
                     System.out.println("Multiplicacion");
@@ -62,6 +62,10 @@ public class EjemploOperaciones {
                     System.out.println("Ingresa tu edad");
                     con.edad = sc.nextInt();
                     con.mayorEdad();
+                case 6:
+                    System.out.println("*-*-*-*-*-*");
+                    System.out.println(con.cicloF());
+                    break;
             }
             System.out.println("***Menú***");
             System.out.println("Operaciones Aritmeticas");

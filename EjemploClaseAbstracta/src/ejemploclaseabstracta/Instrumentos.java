@@ -9,9 +9,11 @@ public abstract class Instrumentos {
     
     public String material;
     public String tipo;
+    public int s;
     
     public void genero(){
-        System.out.println("Intrumento de Orquesta");
+        int ss;
+        ss = s *12;
     }
     
     public abstract void sonido();

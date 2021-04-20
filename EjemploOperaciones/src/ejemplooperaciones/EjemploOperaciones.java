@@ -9,7 +9,7 @@ public class EjemploOperaciones {
         Operaciones ope = new Operaciones();
         //Instancia de la clase Condiciones
         Condiciones con = new Condiciones();
-      
+
         Scanner sc = new Scanner(System.in);
         int op;
         System.out.println("***Menú***");
@@ -20,10 +20,15 @@ public class EjemploOperaciones {
         System.out.println("4 Division");
         System.out.println("Condiciones");
         System.out.println("5 Estructura If");
+        System.out.println("Ciclos");
+        System.out.println("6 For");
+        System.out.println("7 Matriz");
+        
+
         System.out.println("Elija una opción");
         op = sc.nextInt();
 
-        while (op > 0 && op < 7) {
+        while (op > 0 && op < 8) {
             switch (op) {
                 case 1:
                     System.out.println("Sumar");
@@ -63,8 +68,19 @@ public class EjemploOperaciones {
                     con.edad = sc.nextInt();
                     con.mayorEdad();
                 case 6:
-                    System.out.println("*-*-*-*-*-*");
-                    System.out.println(con.cicloF());
+                    System.out.println("Ciclo For");
+                    System.out.println("Con retorno");
+                    System.out.println(con.cicloFR());
+                    System.out.println("Sin retorno");
+                    con.cicloFSin();
+                    break;
+                case 7:
+                    System.out.println("Fila");
+                    con.f = sc.nextInt();//2
+                    System.out.println("Columna");
+                    con.c = sc.nextInt();//2
+                    con.matrizEjemplo();
+                    con.verMatriz();
                     break;
             }
             System.out.println("***Menú***");

@@ -3,7 +3,7 @@ package ejemplointerfaces;
 
 
 public class Huawei implements Smartphone{
-
+    
     public Huawei() {
     }
     public int pass(){

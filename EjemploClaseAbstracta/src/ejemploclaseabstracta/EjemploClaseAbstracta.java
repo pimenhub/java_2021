@@ -17,6 +17,10 @@ public class EjemploClaseAbstracta {
         v.uso();
         v.violin();
         
+        for (int i = 0; i < 10; i++) {
+            
+        }
+        
         //instancia de una clase abstracta
         Instrumentos i = new Violin();
         i.material = "Madera";

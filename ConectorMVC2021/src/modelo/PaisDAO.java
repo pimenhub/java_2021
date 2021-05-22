@@ -33,12 +33,29 @@ public class PaisDAO implements ConsultasDAO{
     
     @Override
     public void actualizar(PaisVO p) {
-        
+        Conector c = new Conector();
+        try {
+            c.conectar();
+            String consulta = "UPDATE tbl_pais SET nombre_pais ='"+p.getNombre_pais()+"', "
+                    + "capital_pais ='"+p.getCapital_pais()+"', "
+                    + "poblacion_pais="+p.getPoblacion_pais()+" WHERE id_pais  ="+p.getId_pais();
+            c.consultas_multiples(consulta);
+        } catch (Exception e) {
+            System.err.println("Erro Actualizar "+e.getMessage());
+        }
     }
 
     @Override
     public void eliminar(PaisVO p) {
-        
+        Conector c = new Conector();
+        try {
+            c.conectar();
+            String consulta = "DELETE FROM tbl_pais WHERE id_pais ="+p.getId_pais()+";";
+            c.consultas_multiples(consulta);
+        } catch (Exception e) {
+            System.err.println("Mensaje Eliminar "+e.getMessage());
+        }
+        c.desconectar();
     }
 
     @Override

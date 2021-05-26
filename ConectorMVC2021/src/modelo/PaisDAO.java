@@ -7,6 +7,11 @@ package modelo;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -79,6 +84,28 @@ public class PaisDAO implements ConsultasDAO{
             System.err.println("Mensaje Mostrar Datos "+e.getMessage());
         }
         return info;
+    }
+    
+    //Variable publica necesaria
+    public JasperViewer jv;
+    //Método para el reporte
+    public void reporte(){
+        Conector c = new Conector();
+        try {
+            c.conectar();
+            //variable que encuentra el reporte
+            JasperReport reporte;
+            //ruta del reporte
+            String ruta = "src\\reportes\\reportePaises.jasper";
+            //asignacion de ruta
+            reporte = (JasperReport) JRLoader.loadObjectFromFile(ruta);
+            JasperPrint jp = JasperFillManager.fillReport(reporte, null, c.con);
+            JasperViewer jv = new JasperViewer(jp);
+            this.jv = jv;
+            
+        } catch (Exception e) {
+            System.err.println("Mensaje Reporte "+e.getMessage());
+        }
     }
     
 }

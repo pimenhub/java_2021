@@ -1,6 +1,8 @@
 
 package controlador;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import javax.swing.table.DefaultTableModel;
@@ -9,7 +11,7 @@ import modelo.PaisVO;
 import vista.Frm_Mostrar;
 
 
-public class ControladorMostrar implements WindowListener{
+public class ControladorMostrar implements WindowListener, ActionListener{
     
     Frm_Mostrar vista = new Frm_Mostrar();
     PaisVO pvo = new PaisVO();
@@ -21,6 +23,7 @@ public class ControladorMostrar implements WindowListener{
         this.pdao = pdao;
         
         vista.addWindowListener(this);
+        vista.btnReporte.addActionListener(this);
     }
     
     private void mostrar(){
@@ -38,6 +41,17 @@ public class ControladorMostrar implements WindowListener{
         vista.tblMostrar.setModel(m);
     }
     
+    private void reporte(){
+        pdao.reporte();
+        pdao.jv.setDefaultCloseOperation(vista.DISPOSE_ON_CLOSE);
+        pdao.jv.setVisible(true);
+    }
+        @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource() == vista.btnReporte){
+            this.reporte();
+        }
+    }
     
     @Override
     public void windowOpened(WindowEvent e) {
@@ -73,5 +87,7 @@ public class ControladorMostrar implements WindowListener{
     public void windowDeactivated(WindowEvent e) {
         
     }
+
+
     
 }

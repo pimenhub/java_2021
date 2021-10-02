@@ -100,7 +100,7 @@ public class PaisDAO implements ConsultasDAO{
             //asignacion de ruta
             reporte = (JasperReport) JRLoader.loadObjectFromFile(ruta);
             JasperPrint jp = JasperFillManager.fillReport(reporte, null, c.con);
-            JasperViewer jv = new JasperViewer(jp);
+            JasperViewer jv = new JasperViewer(jp, false);
             this.jv = jv;
             
         } catch (Exception e) {

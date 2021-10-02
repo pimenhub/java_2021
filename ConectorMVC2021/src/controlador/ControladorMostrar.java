@@ -5,7 +5,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableModel;
 import modelo.PaisDAO;
 import modelo.PaisVO;
 import vista.Frm_Mostrar;
@@ -33,12 +36,15 @@ public class ControladorMostrar implements WindowListener, ActionListener{
         m.addColumn("Nombre del País");
         m.addColumn("Capital del País");
         m.addColumn("Población");
-        
         for (PaisVO pvo : pdao.consultarTabla()) {
             m.addRow(new Object[]{pvo.getId_pais(),pvo.getNombre_pais(),
                 pvo.getCapital_pais(),pvo.getPoblacion_pais()});
-        }
+        }        
         vista.tblMostrar.setModel(m);
+        //Dimensiones de las columnas de la tabla
+        TableColumn c0 = vista.tblMostrar.getColumnModel().getColumn(0);
+        c0.setMaxWidth(35);
+        c0.setMinWidth(35);
     }
     
     private void reporte(){

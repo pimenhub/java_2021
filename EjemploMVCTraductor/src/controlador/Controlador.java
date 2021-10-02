@@ -29,6 +29,7 @@ public class Controlador implements ActionListener{
     }
     private void traductor(){
       modelo.setPalabra(vista.cmbPalabras.getSelectedItem().toString());
+      
       vista.lblMostrar.setText(modelo.traducir());
       vista.jopMostrar.showMessageDialog(null, modelo.traducir());
     }
